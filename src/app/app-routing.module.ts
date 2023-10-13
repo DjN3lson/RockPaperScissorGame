@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {HeaderComponent} from "./header/header.component";
 import {FooterComponent} from "./footer/footer.component";
-import { InputComponent} from "./input-header/input.component";
-import {ResultComponent} from "./result-page/result-page.component";
+import {InputComponent} from "./input-header/input.component";
+import {ResultComponent} from "./result-page/result.component";
 import{AppComponent} from "./app.component";
 import {FormsModule} from "@angular/forms";
 
@@ -16,9 +16,9 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     HeaderComponent,
+    ResultComponent,
     FooterComponent,
     InputComponent,
-    ResultComponent,
     AppComponent
   ],
   imports: [RouterModule.forRoot(routes), FormsModule],

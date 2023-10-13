@@ -9,7 +9,7 @@ import { GameService} from "../game.service";
 export class ResultComponent {
   userChoice: string = '';
   computerChoice: string = '';
-  result: string = '';
+  result: string ='';
 
   constructor(private gameService: GameService) {}
 
