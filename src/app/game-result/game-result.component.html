@@ -1,1 +1,12 @@
-<p>game-result works!</p>
+<h2>Results:</h2>
+
+<div class="result">
+  {{getResult()}}
+</div>
+
+<div class="choices">
+  <label *ngFor="let choice of choices">
+    <img src="assets/{{choice}}" alt="{{choice}}">
+  </label>
+
+</div>
