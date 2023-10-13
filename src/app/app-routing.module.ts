@@ -30,5 +30,5 @@ const routes: Routes= [
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppRouting { }
+export class AppRoutingModule { }
 
