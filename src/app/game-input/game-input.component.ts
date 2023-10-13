@@ -28,16 +28,19 @@ export class GameInputComponent {
     const userChoice = this.gameService.getUserChoice();
     const computerChoice = this.gameService.getComputerChoice();
 
+    const tieMessage = "It's a tie!";
+    const userWinMessage = 'You win!';
+    const compWinMessage = 'Computer Wins!';
     if (userChoice === computerChoice) {
-      this.gameService.setResult(("It's a tie!"));
+      this.gameService.setResult(tieMessage);
     } else if (
       (userChoice === 'Rock.png' && computerChoice === 'Scissor.png') ||
       (userChoice === 'Paper.png' && computerChoice === 'Rock.png') ||
       (userChoice === 'Scissor.png' && computerChoice === 'Paper.png')
     ) {
-      this.gameService.setResult('You win!');
+      this.gameService.setResult(userWinMessage);
     } else {
-      this.gameService.setResult('Computer wins!');
+      this.gameService.setResult(compWinMessage);
     }
   }
 }

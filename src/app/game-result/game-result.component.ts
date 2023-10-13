@@ -7,6 +7,7 @@ import { GameService} from "../game.service";
   styleUrls: ['./game-result.component.css']
 })
 export class GameResultComponent {
+  choices: string[] = ['Rock.png', 'Paper.png', 'Scissor.png'];
   constructor(private gameService: GameService) {}
 
   getResult(){
