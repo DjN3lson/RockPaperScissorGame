@@ -1,25 +1,59 @@
 import { Injectable } from '@angular/core';
 
+
 @Injectable({
   providedIn: 'root'
 })
 export class GameService {
-  result: string = '';
+  userMove: string;
+  userMoveImage: string;
+  computerMove: string;
+  computerMoveImage: string;
+  result: string;
 
-  playGame(userChoice: string) {
-    const choices = ['rock', 'paper', 'scissors'];
-    const computerChoice = choices[Math.floor(Math.random() * choices.length)];
+  constructor(userMove: string, userMoveImage: string, computerMove: string, computerMoveImage: string, result: string) {
+    this.userMove = userMove;
+    this.userMoveImage = userMoveImage;
+    this.computerMove = computerMove;
+    this.computerMoveImage = computerMoveImage;
+    this.result = result;
+  }
 
-    if (userChoice === computerChoice) {
+  setUserMove(move: string) {
+    this.userMove = move;
+    this.userMoveImage = this.getImagePath(move);
+  }
+
+  play() {
+    const moves: string[] = ['paper', 'rock', 'scissors'];
+    this.computerMove = moves[Math.floor(Math.random() * moves.length)];
+    this.computerMoveImage = this.getImagePath(this.computerMove);
+    this.calculateResult();
+  }
+  calculateResult(){
+    if(this.userMove ===this.computerMove){
       this.result = "It's a tie!";
-    } else if (
-      (userChoice === 'rock' && computerChoice === 'scissors') ||
-      (userChoice === 'paper' && computerChoice === 'rock') ||
-      (userChoice === 'scissors' && computerChoice === 'paper')
-    ) {
-      this.result = 'You win!';
-    } else {
-      this.result = 'Computer wins!';
+    }else if((this.userMove === 'paper'
+      && this.computerMove === 'rock') ||
+      (this.userMove === 'rock' &&
+        this.computerMove==='scissor') ||
+      (this.userMove === ' scissor'
+        && this.computerMove === 'paper')){
+      this.result = "You WIN!";
+    } else{
+      this.result = "You LOST!";
+    }
+  }
+  private getImagePath(move: string): string{
+    switch(move){
+      case'paper':
+        return 'assets/Paper.png';
+      case'rock':
+        return 'assets/Rock.png';
+      case'scissor':
+        return 'assets/Scissor.png';
+      default:
+        return '';
     }
   }
 }
