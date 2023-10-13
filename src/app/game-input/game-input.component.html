@@ -1,7 +1,10 @@
-<h2>Choose your move:</h2>
-<div class="choices">
-  <label *ngFor="let choice of choices">
-    <input type="radio" name="choice" (click)="selectChoice(choice)">
-    <img src="assets/{{choice}}" alt="{{choice}}">
-  </label>
+<div class="game-input">
+  <h2>Choose Your Move:</h2>
+  <div class="choices">
+    <label *ngFor="let choice of choices" class="choice-label">
+      <input type="radio" name="userChoice" value="{{ choice }}" (click)="selectChoice(choice)">
+      <img [src]="choice" alt="{{ choice }}">
+    </label>
+  </div>
+  <button (click)="playGame()">Go</button>
 </div>
