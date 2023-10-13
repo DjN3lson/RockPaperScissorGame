@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Inject, Injectable} from '@angular/core';
 
 
 @Injectable({
@@ -11,7 +11,12 @@ export class GameService {
   computerMoveImage: string;
   result: string;
 
-  constructor(userMove: string, userMoveImage: string, computerMove: string, computerMoveImage: string, result: string) {
+  constructor(@Inject('userMove') userMove: string,
+              @Inject('userMoveImage') userMoveImage: string,
+              @Inject('computerMove') computerMove: string,
+              @Inject('computerMoveImage') computerMoveImage: string,
+              @Inject('result') result: string) {
+
     this.userMove = userMove;
     this.userMoveImage = userMoveImage;
     this.computerMove = computerMove;
