@@ -4,32 +4,22 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class GameService {
-  private userChoice: string;
-  private computerChoice: string;
-  private result: string;
+  result: string = '';
 
-setUserChoice(choice:string){
-  this.userChoice = choice;
-}
-getUserChoice(){
-  return this.userChoice;
-}
-setComputerChoice(choice:string){
-  this.computerChoice = choice;
-}
-getComputerChoice(){
-  return this.computerChoice;
-}
-setResult(result: string){
-  this.result = result;
-}
-getResult(){
-  return this.result;
-}
+  playGame(userChoice: string) {
+    const choices = ['rock', 'paper', 'scissors'];
+    const computerChoice = choices[Math.floor(Math.random() * choices.length)];
 
-  constructor(userChoice: string, computerChoice: string, result: string) {
-    this.userChoice = userChoice;
-    this.computerChoice = computerChoice;
-    this.result = result;
+    if (userChoice === computerChoice) {
+      this.result = "It's a tie!";
+    } else if (
+      (userChoice === 'rock' && computerChoice === 'scissors') ||
+      (userChoice === 'paper' && computerChoice === 'rock') ||
+      (userChoice === 'scissors' && computerChoice === 'paper')
+    ) {
+      this.result = 'You win!';
+    } else {
+      this.result = 'Computer wins!';
+    }
   }
 }
