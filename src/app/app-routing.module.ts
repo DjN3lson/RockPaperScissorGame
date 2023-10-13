@@ -5,6 +5,7 @@ import {FooterComponent} from "./footer/footer.component";
 import { InputComponent} from "./input-header/input.component";
 import {ResultComponent} from "./result-page/result-page.component";
 import{AppComponent} from "./app.component";
+import {FormsModule} from "@angular/forms";
 
 const routes: Routes = [
   { path: '', redirectTo: '/input', pathMatch: 'full' },
@@ -20,7 +21,7 @@ const routes: Routes = [
     ResultComponent,
     AppComponent
   ],
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes), FormsModule],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
