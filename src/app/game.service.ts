@@ -1,64 +1,49 @@
-import {Inject, Injectable} from '@angular/core';
+import { Injectable } from '@angular/core';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class GameService {
-  userMove: string;
-  userMoveImage: string;
-  computerMove: string;
-  computerMoveImage: string;
-  result: string;
+  private userChoice: string ='';
+  private computerChoice: string='';
+  private result: string='';
 
-  constructor(@Inject('userMove') userMove: string,
-              @Inject('userMoveImage') userMoveImage: string,
-              @Inject('computerMove') computerMove: string,
-              @Inject('computerMoveImage') computerMoveImage: string,
-              @Inject('result') result: string) {
-
-    this.userMove = userMove;
-    this.userMoveImage = userMoveImage;
-    this.computerMove = computerMove;
-    this.computerMoveImage = computerMoveImage;
-    this.result = result;
+  setUserChoice(choice: string) {
+    this.userChoice = choice;
+    this.generateComputerChoice();
+    this.determineResult();
   }
 
-  setUserMove(move: string) {
-    this.userMove = move;
-    this.userMoveImage = this.getImagePath(move);
+  getUserChoice(): string {
+    return this.userChoice;
   }
 
-  play() {
-    const moves: string[] = ['paper', 'rock', 'scissors'];
-    this.computerMove = moves[Math.floor(Math.random() * moves.length)];
-    this.computerMoveImage = this.getImagePath(this.computerMove);
-    this.calculateResult();
+  getComputerChoice(): string {
+    return this.computerChoice;
   }
-  calculateResult(){
-    if(this.userMove ===this.computerMove){
-      this.result = "It's a tie!";
-    }else if((this.userMove === 'paper'
-      && this.computerMove === 'rock') ||
-      (this.userMove === 'rock' &&
-        this.computerMove==='scissor') ||
-      (this.userMove === ' scissor'
-        && this.computerMove === 'paper')){
-      this.result = "You WIN!";
-    } else{
-      this.result = "You LOST!";
-    }
+
+  getResult(): string {
+    return this.result;
   }
-  private getImagePath(move: string): string{
-    switch(move){
-      case'paper':
-        return 'assets/Paper.png';
-      case'rock':
-        return 'assets/Rock.png';
-      case'scissor':
-        return 'assets/Scissor.png';
-      default:
-        return '';
+
+  private generateComputerChoice() {
+    const choices = ['rock', 'paper', 'scissors'];
+    const randomIndex = Math.floor(Math.random() * choices.length);
+    this.computerChoice = choices[randomIndex];
+  }
+
+  private determineResult() {
+    if (this.userChoice === this.computerChoice) {
+      this.result = 'It\'s a tie!';
+    } else if (
+      (this.userChoice === 'rock' && this.computerChoice === 'scissors') ||
+      (this.userChoice === 'paper' && this.computerChoice === 'rock') ||
+      (this.userChoice === 'scissors' && this.computerChoice === 'paper')
+    ) {
+      this.result = 'You win!';
+    } else {
+      this.result = 'Computer wins!';
     }
   }
 }

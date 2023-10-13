@@ -1,0 +1,18 @@
+<section>
+  <h2>Make Your Choice</h2>
+  <div class="choices">
+    <label>
+      <input type="radio" name="choice" value="rock" [(ngModel)]="userChoice">
+      <img src="path_to_rock_image" alt="Rock">
+    </label>
+    <label>
+      <input type="radio" name="choice" value="paper" [(ngModel)]="userChoice">
+      <img src="path_to_paper_image" alt="Paper">
+    </label>
+    <label>
+      <input type="radio" name="choice" value="scissors" [(ngModel)]="userChoice">
+      <img src="path_to_scissors_image" alt="Scissors">
+    </label>
+  </div>
+  <button (click)="play()">Play</button>
+</section>

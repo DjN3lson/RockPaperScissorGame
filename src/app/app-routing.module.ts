@@ -1,34 +1,26 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import {RouterModule, Routes} from "@angular/router";
+import { RouterModule, Routes } from '@angular/router';
+import {HeaderComponent} from "./header/header.component";
+import {FooterComponent} from "./footer/footer.component";
+import { InputComponent} from "./input-header/input.component";
+import {ResultComponent} from "./result-page/result-page.component";
+import{AppComponent} from "./app.component";
 
-import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
-import { InputHeaderComponent } from './input-header/input-header.component';
-import { ResultPageComponent } from './result-page/result-page.component';
-
-const routes: Routes= [
-  {path: '', redirectTo: '/input', pathMatch: 'full'},
-  { path: 'input', component: InputHeaderComponent },
-  { path: 'result', component: ResultPageComponent }
+const routes: Routes = [
+  { path: '', redirectTo: '/input', pathMatch: 'full' },
+  { path: 'input', component: InputComponent },
+  { path: 'result', component: ResultComponent }
 ];
 
 @NgModule({
   declarations: [
-    AppComponent,
     HeaderComponent,
     FooterComponent,
-    InputHeaderComponent,
-    ResultPageComponent
+    InputComponent,
+    ResultComponent,
+    AppComponent
   ],
-  imports: [
-    BrowserModule,
-    RouterModule.forRoot(routes)
-  ],
-  exports: [RouterModule],
-  providers: [],
-  bootstrap: [AppComponent]
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
 })
 export class AppRoutingModule { }
-
