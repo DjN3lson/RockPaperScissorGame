@@ -1,0 +1,14 @@
+<div class="container">
+  <h2>Result:</h2>
+  <div class="choices">
+    <div>
+      <h3>Your Move:</h3>
+      <img [src]="gameService.userMoveImage" alt="Your Move">
+    </div>
+    <div>
+      <h3>Computer's Move:</h3>
+      <img [src]="gameService.computerMoveImage" alt="Computer's Move">
+    </div>
+  </div>
+  <h2>{{ gameService.result }}</h2>
+</div>

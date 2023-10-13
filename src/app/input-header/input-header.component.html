@@ -1,0 +1,14 @@
+<div class="container">
+  <h2>Choose your move:</h2>
+  <div class="choices">
+    <input type="radio" id="paper" name="move" (click)="selectMove('paper')">
+    <label for="paper"><img src="assets/Paper.png" alt="Paper"></label>
+
+    <input type="radio" id="rock" name="move" (click)="selectMove('rock')">
+    <label for="rock"><img src="assets/Rock.png.png" alt="Rock"></label>
+
+    <input type="radio" id="scissors" name="move" (click)="selectMove('scissors')">
+    <label for="scissors"><img src="assets/Scissor.png.png" alt="Scissors"></label>
+  </div>
+  <button (click)="playGame()">Play</button>
+</div>

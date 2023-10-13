@@ -6,6 +6,8 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { GameInputComponent } from './game-input/game-input.component';
 import { GameResultComponent } from './game-result/game-result.component';
+import { InputHeaderComponent } from './input-header/input-header.component';
+import { ResultPageComponent } from './result-page/result-page.component';
 
 @NgModule({
   declarations: [
@@ -13,7 +15,9 @@ import { GameResultComponent } from './game-result/game-result.component';
     HeaderComponent,
     FooterComponent,
     GameInputComponent,
-    GameResultComponent
+    GameResultComponent,
+    InputHeaderComponent,
+    ResultPageComponent
   ],
   imports: [
     BrowserModule
