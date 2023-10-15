@@ -9,6 +9,5 @@ import { GameService} from "./game.service";
 export class AppComponent {
   title = 'Assignment2-RockPaperScissorGame';
 
-  constructor(private gameService: GameService) {
-  }
+  constructor(private gameService: GameService) {}
 }
