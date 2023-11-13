@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { GameService} from "../game.service";
+import { DataService} from "../data.service";
 
 @Component({
   selector: 'app-result',
@@ -11,11 +11,11 @@ export class ResultComponent {
   computerChoice: string = '';
   result: string ='';
 
-  constructor(private gameService: GameService) {}
+  constructor(private dataService: DataService) {}
 
   ngOnInit() {
-    this.userChoice = this.gameService.getUserChoice();
-    this.computerChoice = this.gameService.getComputerChoice();
-    this.result = this.gameService.getResult();
+    this.userChoice = this.dataService.getUserChoice();
+    this.computerChoice = this.dataService.getComputerChoice();
+    this.result = this.dataService.getResult();
   }
 }

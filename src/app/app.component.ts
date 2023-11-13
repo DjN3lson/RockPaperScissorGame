@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { GameService} from "./game.service";
+import { DataService } from "./data.service";
 
 @Component({
   selector: 'app-root',
@@ -9,5 +9,5 @@ import { GameService} from "./game.service";
 export class AppComponent {
   title = 'Assignment2-RockPaperScissorGame';
 
-  constructor(private gameService: GameService) {}
+  constructor(private dataService: DataService) {}
 }

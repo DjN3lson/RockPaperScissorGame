@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { GameService} from "../game.service";
+import { DataService} from "../data.service";
 
 @Component({
   selector: 'app-input',
@@ -9,9 +9,9 @@ import { GameService} from "../game.service";
 export class InputComponent {
   userChoice: string = '';
 
-  constructor(private gameService: GameService) {}
+  constructor(private dataService: DataService) {}
 
   play() {
-    this.gameService.setUserChoice(this.userChoice);
+    this.dataService.setUserChoice(this.userChoice);
   }
 }
