@@ -36,9 +36,9 @@ export class DataService {
     if(this.userChoice === this.computerChoice){
       this.result = 'It is a tie!';
     }else if(
-      (this.userChoice === 'rock' && this.computerChoice === 'scissor') ||
-      (this.userChoice === 'paper' && this.computerChoice === 'rock') ||
-      (this.userChoice ==='scissor' && this.computerChoice === 'paper')){
+      (this.userChoice === 'Rock' && this.computerChoice === 'Scissor') ||
+      (this.userChoice === 'Paper' && this.computerChoice === 'Rock') ||
+      (this.userChoice ==='Scissor' && this.computerChoice === 'Paper')){
         this.result = "User Wins!";
     }else{
       this.result = 'Computer Wins!';
