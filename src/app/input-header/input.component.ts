@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { DataService} from "../data.service";
 import {NgModule} from "@angular/core";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-input',
@@ -10,9 +11,10 @@ import {NgModule} from "@angular/core";
 export class InputComponent {
   userChoice: string = '';
 
-  constructor(private dataService: DataService) {}
+  constructor(private dataService: DataService, private router: Router) {}
 
   play() {
     this.dataService.setUserChoice(this.userChoice);
+    this.router.navigate(['/result']);
   }
 }

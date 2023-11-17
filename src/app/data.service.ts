@@ -9,7 +9,7 @@ export class DataService {
   private result: string='';
 
   setUserChoice(choice:string){
-    this.userChoice =choice;
+    this.userChoice = choice;
     this.generateComputerChoice();
     this.determineResult();
   }
@@ -26,8 +26,8 @@ export class DataService {
     return this.result;
   }
 
-  private generateComputerChoice(){
-    const choices = ['rock', 'paper', 'scissor'];
+  public generateComputerChoice(){
+    const choices = ['Rock', 'Paper', 'Scissor'];
     const randomIndex = Math.floor(Math.random()+choices.length);
     this.computerChoice = choices[randomIndex];
   }
